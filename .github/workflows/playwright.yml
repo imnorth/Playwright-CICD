@@ -1,13 +1,19 @@
 name: Playwright CI/CD
 
-on: [push, pull_request]  
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chromium]
+        browser: [chromium, firefox, webkit]
 
     steps:
       - name: Checkout code
@@ -17,16 +23,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --project=${{ matrix.browser }}
+        run: npx playwright test
 
       - name: Upload test reports
         uses: actions/upload-artifact@v4

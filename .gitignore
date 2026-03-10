@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Test artifacts
+test-results/
+test-artifacts/
+
+# Screenshots
+screenshots/
+
+# Videos
+videos/
+
+# Playwright report
+playwright-report/
+
+# Other common build artifacts
+*.log
+*.tmp
+*.bak

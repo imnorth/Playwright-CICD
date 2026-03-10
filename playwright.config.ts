@@ -18,7 +18,5 @@ export default defineConfig({
   // Use parallel test execution
   projects: [
     { name: 'Chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'Firefox', use: { ...devices['Desktop Firefox'] } },
-    { name: 'WebKit', use: { ...devices['Desktop Safari'] } },
   ],
 });

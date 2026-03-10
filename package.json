@@ -1,0 +1,1 @@
+{\n  "name": "playwright-example",\n  "version": "0.1.0",\n  "scripts": {\n    "test": "playwright test"\n  },\n  "devDependencies": {\n    "@playwright/test": "latest"\n  }\n}
